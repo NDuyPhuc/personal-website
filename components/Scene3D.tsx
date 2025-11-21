@@ -3,6 +3,18 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Sphere, MeshDistortMaterial, Stars, TorusKnot } from '@react-three/drei';
 
 // Fix for missing intrinsic elements in TypeScript definition
+// Augmenting React's JSX namespace to support R3F elements
+declare module 'react' {
+  namespace JSX {
+    interface IntrinsicElements {
+      meshStandardMaterial: any;
+      ambientLight: any;
+      pointLight: any;
+    }
+  }
+}
+
+// Also augment global JSX for broader compatibility
 declare global {
   namespace JSX {
     interface IntrinsicElements {
