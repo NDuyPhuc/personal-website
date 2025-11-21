@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { SectionId, Project } from '../types';
 import { ExternalLink, Trophy, Star, Award } from 'lucide-react';
 
-const startupImg = '/res/image/Startup-hop-doi-nhom.jpg';
+const startupImg = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/Startup-hop-doi-nhom.jpg?updatedAt=1763733042220';
 
 const projects: Project[] = [
   {

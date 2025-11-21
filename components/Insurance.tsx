@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { SectionId } from '../types';
 import { ShieldCheck, Car, Bike, Heart, Home, Activity, Briefcase, Lock, ExternalLink, Stethoscope, Ambulance, Phone, Award } from 'lucide-react';
 
-const agentImg = '/res/image/image-ca-nhan-mac-vest.jpg';
+const agentImg = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/image-ca-nhan-mac-vest.jpg?updatedAt=1763733040840';
 
 const insuranceProducts = [
   {
@@ -169,8 +169,8 @@ export const Insurance: React.FC = () => {
             </p>
         </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        {/* Products Grid - Equal Heights */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 auto-rows-fr">
           {insuranceProducts.map((item, index) => (
             <motion.a
               key={index}
@@ -181,7 +181,7 @@ export const Insurance: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
-              className="group flex flex-col p-5 bg-brand-gray/10 border border-brand-gray/30 rounded-xl hover:bg-brand-gray/30 hover:border-brand-cyan/50 transition-all duration-300 relative overflow-hidden"
+              className="group flex flex-col h-full p-5 bg-brand-gray/10 border border-brand-gray/30 rounded-xl hover:bg-brand-gray/30 hover:border-brand-cyan/50 transition-all duration-300 relative overflow-hidden"
             >
                 <div className="absolute top-0 right-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity">
                     <ExternalLink className="w-4 h-4 text-brand-cyan" />
@@ -191,11 +191,11 @@ export const Insurance: React.FC = () => {
                     <div className="p-2 bg-brand-dark rounded-lg text-brand-gold group-hover:text-brand-cyan transition-colors">
                         <item.icon className="w-6 h-6" />
                     </div>
-                    <h3 className="font-bold text-white text-sm group-hover:text-brand-cyan transition-colors">
+                    <h3 className="font-bold text-white text-sm group-hover:text-brand-cyan transition-colors line-clamp-1">
                         {item.name}
                     </h3>
                 </div>
-                <p className="text-xs text-brand-light/70 mb-4 flex-grow">{item.desc}</p>
+                <p className="text-xs text-brand-light/70 mb-4 flex-grow line-clamp-2">{item.desc}</p>
                 
                 <div className="mt-auto w-full py-2 rounded bg-brand-cyan/10 text-brand-cyan text-xs font-bold text-center border border-brand-cyan/20 group-hover:bg-brand-cyan group-hover:text-brand-dark transition-all">
                     MUA NGAY

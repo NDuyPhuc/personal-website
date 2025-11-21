@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { SectionId } from '../types';
 import { ArrowRight, Code, Briefcase, Award, ShieldCheck } from 'lucide-react';
 
-const heroImg = '/res/image/image-ca-nhan-mac-vest.jpg';
+const heroImg = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/image-ca-nhan-mac-vest.jpg?updatedAt=1763733040840';
 
 export const Hero: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-8 relative z-20"
+            className="space-y-8 relative z-20 order-2 lg:order-1"
           >
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-brand-gray bg-brand-gray/30 backdrop-blur-sm">
                 <Award className="w-4 h-4 text-yellow-400" />
@@ -91,7 +91,7 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="hidden lg:block relative h-[600px] w-full"
+            className="order-1 lg:order-2 relative w-full max-w-lg mx-auto lg:max-w-none"
           >
             {/* Background Glows */}
             <div className="absolute top-10 right-10 w-64 h-64 bg-brand-cyan/20 blur-[100px] rounded-full animate-pulse" />
@@ -101,13 +101,13 @@ export const Hero: React.FC = () => {
             <motion.div 
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="relative z-10 w-4/5 mx-auto h-full"
+                className="relative z-10 w-4/5 mx-auto lg:w-3/4 aspect-[3/4]"
             >
                 {/* Frame Border */}
                 <div className="absolute -inset-4 border-2 border-brand-gray/30 rounded-3xl z-0 translate-x-4 translate-y-4" />
                 
                 {/* Main Image */}
-                <div className="relative h-full rounded-3xl overflow-hidden border border-brand-gray/50 shadow-2xl shadow-black/50">
+                <div className="relative h-full w-full rounded-3xl overflow-hidden border border-brand-gray/50 shadow-2xl shadow-black/50">
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-40 z-10" />
                     <img 
                         src={heroImg} 
@@ -117,7 +117,7 @@ export const Hero: React.FC = () => {
                 </div>
 
                 {/* Floating Badge */}
-                <div className="absolute -bottom-8 -right-8 bg-brand-dark/90 backdrop-blur-xl border border-brand-gold/30 p-4 rounded-xl shadow-xl z-20">
+                <div className="absolute -bottom-4 -right-4 md:-bottom-8 md:-right-8 bg-brand-dark/90 backdrop-blur-xl border border-brand-gold/30 p-4 rounded-xl shadow-xl z-20">
                     <div className="flex items-center space-x-3">
                         <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
                         <div>
