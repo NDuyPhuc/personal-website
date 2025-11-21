@@ -4,6 +4,8 @@ import { SectionId, Project } from '../types';
 import { ExternalLink, Trophy, Star, Award } from 'lucide-react';
 
 const startupImg = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/Startup-hop-doi-nhom.jpg?updatedAt=1763733042220';
+const codingImg = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/ban-than-dang-ngoi-truoc-man-hinh-lap-trinh.jpg?updatedAt=1763734355088';
+const financeImg = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/ban-than-dang-tu-van-tai-chinh.jpg?updatedAt=1763734355016';
 
 const projects: Project[] = [
   {
@@ -22,7 +24,7 @@ const projects: Project[] = [
     description: "Xây dựng luồng làm việc tự động (Workflows) cho khách hàng doanh nghiệp, tích hợp CRM, Marketing và Báo cáo tự động.",
     tech: ["n8n", "Webhook", "API Integration", "JavaScript"],
     impact: "Tiết kiệm 30% thời gian vận hành cho khách hàng.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000"
+    image: codingImg
   },
   {
     id: 3,
@@ -31,7 +33,7 @@ const projects: Project[] = [
     description: "Hoạt động tư vấn bảo hiểm chuyên nghiệp với Chubb Life và GSale. Xây dựng kế hoạch tài chính cá nhân hóa.",
     tech: ["Sales", "Consulting", "Risk Management", "Customer Care"],
     impact: "Đối tác tin cậy, mã số đại lý 0233475.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1000"
+    image: financeImg
   }
 ];
 

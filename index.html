@@ -40,6 +40,7 @@
             animation: {
               'spin-slow': 'spin 20s linear infinite',
               'float': 'float 6s ease-in-out infinite',
+              'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             },
             keyframes: {
               float: {
@@ -71,18 +72,27 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #66FCF1;
       }
+      
+      /* Loader CSS */
+      .loader-bar {
+        width: 0;
+        animation: loading 1.5s ease-in-out forwards;
+      }
+      @keyframes loading {
+        0% { width: 0; }
+        100% { width: 100%; }
+      }
     </style>
-  <script type="importmap">
+<script type="importmap">
 {
   "imports": {
-    "@react-three/fiber": "https://aistudiocdn.com/@react-three/fiber@^9.4.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "three": "https://aistudiocdn.com/three@^0.181.2",
+    "@react-three/fiber": "https://aistudiocdn.com/@react-three/fiber@^9.4.0",
     "@react-three/drei": "https://aistudiocdn.com/@react-three/drei@^10.7.7",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24"
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
   }
 }
 </script>
