@@ -1,9 +1,13 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { SectionId, Project } from '../types';
-import { ExternalLink, Trophy, Star, Award } from 'lucide-react';
+import { ExternalLink, Trophy, Star, Award, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const startupImg = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/Startup-hop-doi-nhom.jpg?updatedAt=1763733042220';
+const startupImg1 = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/Startup-hop-doi-nhom.jpg?updatedAt=1763733042220';
+const startupImg2 = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/nhan-thuong-NCKH-4-3.jpg';
+const startupImg3 = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/hinh-anh-ban-than-dang-thuyet-trinh.jpg';
+const startupImg4 = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/thuyet-trinh-NCKH.jpg';
+
 const codingImg = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/ban-than-dang-ngoi-truoc-man-hinh-lap-trinh.jpg?updatedAt=1763734355088';
 const financeImg = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/ban-than-dang-tu-van-tai-chinh.jpg?updatedAt=1763734355016';
 
@@ -15,7 +19,7 @@ const projects: Project[] = [
     description: "Dự án khởi nghiệp và Nghiên cứu khoa học đoạt giải. Nền tảng kết nối và chia sẻ nguồn lực cộng đồng.",
     tech: ["React", "Node.js", "Business Model Canvas", "Pitching"],
     impact: "Giải Nhì SIU StartUP & Giải Ba NCKH 2024-2025.",
-    image: startupImg
+    images: [startupImg4, startupImg2, startupImg3, startupImg1]
   },
   {
     id: 2,
@@ -24,7 +28,7 @@ const projects: Project[] = [
     description: "Xây dựng luồng làm việc tự động (Workflows) cho khách hàng doanh nghiệp, tích hợp CRM, Marketing và Báo cáo tự động.",
     tech: ["n8n", "Webhook", "API Integration", "JavaScript"],
     impact: "Tiết kiệm 30% thời gian vận hành cho khách hàng.",
-    image: codingImg
+    images: [codingImg]
   },
   {
     id: 3,
@@ -33,9 +37,89 @@ const projects: Project[] = [
     description: "Hoạt động tư vấn bảo hiểm chuyên nghiệp với Chubb Life và GSale. Xây dựng kế hoạch tài chính cá nhân hóa.",
     tech: ["Sales", "Consulting", "Risk Management", "Customer Care"],
     impact: "Đối tác tin cậy, mã số đại lý 0233475.",
-    image: financeImg
+    images: [financeImg]
   }
 ];
+
+const ProjectImageCarousel = ({ images, title }: { images: string[], title: string }) => {
+    const [index, setIndex] = useState(0);
+    const [direction, setDirection] = useState(0);
+
+    useEffect(() => {
+        if (images.length <= 1) return;
+        
+        const timer = setInterval(() => {
+            setDirection(1);
+            setIndex((prev) => (prev + 1) % images.length);
+        }, 4000);
+
+        return () => clearInterval(timer);
+    }, [index, images.length]);
+
+    const goToSlide = (newIndex: number) => {
+        setDirection(newIndex > index ? 1 : -1);
+        setIndex(newIndex);
+    };
+
+    const variants = {
+        enter: (direction: number) => ({
+            x: direction > 0 ? '100%' : '-100%',
+            opacity: 1
+        }),
+        center: {
+            zIndex: 1,
+            x: 0,
+            opacity: 1
+        },
+        exit: (direction: number) => ({
+            zIndex: 0,
+            x: direction < 0 ? '100%' : '-100%',
+            opacity: 1
+        })
+    };
+
+    return (
+        <div className="w-full h-full relative overflow-hidden bg-brand-dark">
+             <AnimatePresence initial={false} custom={direction} mode="popLayout">
+                <motion.img
+                    key={index}
+                    src={images[index]}
+                    custom={direction}
+                    variants={variants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{
+                        x: { type: "spring", stiffness: 300, damping: 30 },
+                        opacity: { duration: 0.2 }
+                    }}
+                    alt={`${title} ${index + 1}`}
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
+            </AnimatePresence>
+
+            {/* Overlay gradient */}
+            <div className="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none" />
+
+             {/* Dots Indicator */}
+             {images.length > 1 && (
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
+                    {images.map((_, i) => (
+                        <button 
+                            key={i}
+                            onClick={(e) => {
+                                e.stopPropagation(); // Prevent triggering parent click events if any
+                                goToSlide(i);
+                            }}
+                            className={`h-2 rounded-full transition-all duration-300 focus:outline-none hover:bg-brand-cyan ${i === index ? 'bg-brand-cyan w-6' : 'bg-white/50 w-2'}`}
+                            aria-label={`Go to image ${i + 1}`}
+                        />
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+};
 
 export const Projects: React.FC = () => {
   return (
@@ -105,15 +189,11 @@ export const Projects: React.FC = () => {
                 transition={{ duration: 0.8 }}
                 className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center`}
             >
-                {/* Image Side */}
+                {/* Image Side with Carousel */}
                 <div className="w-full lg:w-3/5 group relative perspective-1000">
-                    <div className="relative rounded-xl overflow-hidden shadow-2xl shadow-brand-cyan/10 border border-brand-gray/30 transform transition-transform duration-500 group-hover:scale-[1.02] group-hover:-rotate-1">
-                        <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors z-10" />
-                        <img 
-                            src={project.image} 
-                            alt={project.title} 
-                            className="w-full h-auto object-cover aspect-video"
-                        />
+                    {/* Added bg-brand-dark to fix white gaps on rounded corners */}
+                    <div className="relative aspect-video rounded-xl overflow-hidden bg-brand-dark shadow-2xl shadow-brand-cyan/10 border border-brand-gray/30 transform transition-transform duration-500 group-hover:scale-[1.02] group-hover:-rotate-1">
+                        <ProjectImageCarousel images={project.images} title={project.title} />
                     </div>
                     {/* Decorative elements */}
                     <div className="absolute -inset-4 border border-brand-gray/20 rounded-xl -z-10 translate-x-4 translate-y-4" />

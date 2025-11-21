@@ -12,7 +12,7 @@ export interface Project {
   description: string;
   tech: string[];
   impact: string; // Business impact
-  image: string;
+  images: string[];
 }
 
 export interface Service {

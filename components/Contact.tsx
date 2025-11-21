@@ -6,7 +6,7 @@ import { Mail, Facebook, Phone, Github, Send, CheckCircle, AlertCircle } from 'l
 // CẤU HÌNH TELEGRAM BOT
 // Bạn cần lấy Chat ID của bạn bằng cách chat với bot @userinfobot hoặc GetIDs Bot trên Telegram
 const TELEGRAM_BOT_TOKEN = '8223703318:AAGdpmZgki6f37HMABkIlDMbXv94wwzwQcw';
-const TELEGRAM_CHAT_ID = ''; // <--- ĐIỀN CHAT ID CỦA BẠN VÀO ĐÂY (Ví dụ: '123456789')
+const TELEGRAM_CHAT_ID = '5912538386'; // <--- ĐIỀN CHAT ID CỦA BẠN VÀO ĐÂY (Ví dụ: '123456789')
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
