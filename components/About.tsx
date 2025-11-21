@@ -1,11 +1,16 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { SectionId } from '../types';
 import { Cpu, TrendingUp, Video, Users, Award, Workflow, Mic } from 'lucide-react';
 
 const speakingImg = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/image-ca-nhan.jpg?updatedAt=1763733040561';
 const teamworkImg = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/dao-tao-doi-nhom-image.jpg?updatedAt=1763733050461';
-const awardImg = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/image-nhan-thuong.jpg?updatedAt=1763733043435';
+
+// Array for award slideshow
+const awardImages = [
+  'https://ik.imagekit.io/duyphuc/anh-ca-nhan/image-nhan-thuong.jpg?updatedAt=1763733043435',
+  'https://ik.imagekit.io/duyphuc/anh-ca-nhan/image-nhan-thuong-2.jpg?updatedAt=1763733044156'
+];
 
 const FeatureCard = ({ icon: Icon, title, desc, delay }: { icon: any, title: string, desc: string, delay: number }) => (
   <motion.div
@@ -24,6 +29,16 @@ const FeatureCard = ({ icon: Icon, title, desc, delay }: { icon: any, title: str
 );
 
 export const About: React.FC = () => {
+  const [currentAwardIndex, setCurrentAwardIndex] = useState(0);
+
+  // Slideshow logic for award images
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentAwardIndex((prev) => (prev + 1) % awardImages.length);
+    }, 4000); // Change every 4 seconds
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id={SectionId.ABOUT} className="py-24 relative overflow-hidden">
       {/* Decorative text watermark */}
@@ -96,7 +111,7 @@ export const About: React.FC = () => {
                  </div>
             </motion.div>
 
-            {/* Bottom Right: Awards */}
+            {/* Bottom Right: Awards (Slideshow) */}
             <motion.div 
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -104,13 +119,25 @@ export const About: React.FC = () => {
                 transition={{ delay: 0.2 }}
                 className="md:col-span-2 relative rounded-2xl overflow-hidden group border border-brand-gray/30 min-h-[250px]"
             >
-                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent z-10" />
-                 <img 
-                    src={awardImg} 
-                    alt="Achievements" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0" 
-                 />
-                 <div className="absolute bottom-0 left-0 w-full p-6 z-20">
+                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent z-20 pointer-events-none" />
+                 
+                 {/* Slideshow Container */}
+                 <div className="absolute inset-0 w-full h-full bg-black">
+                   <AnimatePresence mode="wait">
+                    <motion.img 
+                        key={currentAwardIndex}
+                        src={awardImages[currentAwardIndex]}
+                        initial={{ opacity: 0, scale: 1.1 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1, ease: "easeInOut" }}
+                        alt="Achievements" 
+                        className="w-full h-full object-cover absolute inset-0" 
+                    />
+                   </AnimatePresence>
+                 </div>
+
+                 <div className="absolute bottom-0 left-0 w-full p-6 z-30">
                     <div className="flex items-center space-x-2 text-brand-gold mb-2">
                         <Award className="w-4 h-4" />
                         <span className="text-xs font-bold uppercase tracking-wider">Recognition</span>
