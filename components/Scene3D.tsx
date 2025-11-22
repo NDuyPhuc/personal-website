@@ -2,29 +2,6 @@ import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Sphere, MeshDistortMaterial, Stars, TorusKnot } from '@react-three/drei';
 
-// Fix for missing intrinsic elements in TypeScript definition
-// Augmenting React's JSX namespace to support R3F elements
-declare module 'react' {
-  namespace JSX {
-    interface IntrinsicElements {
-      meshStandardMaterial: any;
-      ambientLight: any;
-      pointLight: any;
-    }
-  }
-}
-
-// Also augment global JSX for broader compatibility
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      meshStandardMaterial: any;
-      ambientLight: any;
-      pointLight: any;
-    }
-  }
-}
-
 const AnimatedShape = () => {
   // Use any to avoid importing Mesh from three directly, fixing the multiple instances warning
   const meshRef = useRef<any>(null!);

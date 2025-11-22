@@ -4,7 +4,29 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="https://lucide.dev/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
     <title>Nguyen Duy Phuc | Tech & Strategy</title>
+    <meta name="description" content="Portfolio cá nhân của Nguyễn Duy Phúc - Sinh viên CNTT SIU, Full-stack Developer. Cung cấp các giải pháp công nghệ, Automation (n8n) và bảo hiểm trực tuyến uy tín." />
+    <meta name="keywords" content="Nguyen Duy Phuc, Duy Phuc Portfolio, Full-stack Developer, Web Developer, SIU, Automation, Chubb Life, Bảo hiểm, n8n" />
+    <meta name="author" content="Nguyen Duy Phuc" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://duyphuc.id.vn/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://duyphuc.id.vn/" />
+    <meta property="og:title" content="Nguyen Duy Phuc | Tech & Strategy" />
+    <meta property="og:description" content="Portfolio cá nhân của Nguyễn Duy Phúc - IT x Business x Creative. Khám phá các dự án công nghệ và giải pháp tài chính." />
+    <meta property="og:image" content="https://ik.imagekit.io/duyphuc/anh-ca-nhan/image-ca-nhan-mac-vest.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://duyphuc.id.vn/" />
+    <meta property="twitter:title" content="Nguyen Duy Phuc | Tech & Strategy" />
+    <meta property="twitter:description" content="Portfolio cá nhân của Nguyễn Duy Phúc - IT x Business x Creative." />
+    <meta property="twitter:image" content="https://ik.imagekit.io/duyphuc/anh-ca-nhan/image-ca-nhan-mac-vest.jpg" />
+
     <script>
       // Suppress Tailwind CDN warning in production environments to keep console clean
       const originalWarn = console.warn;
@@ -41,12 +63,23 @@
               'spin-slow': 'spin 20s linear infinite',
               'float': 'float 6s ease-in-out infinite',
               'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'gradient-x': 'gradient-x 3s ease infinite',
             },
             keyframes: {
               float: {
                 '0%, 100%': { transform: 'translateY(0)' },
                 '50%': { transform: 'translateY(-20px)' },
-              }
+              },
+              'gradient-x': {
+                '0%, 100%': {
+                    'background-size': '200% 200%',
+                    'background-position': 'left center'
+                },
+                '50%': {
+                    'background-size': '200% 200%',
+                    'background-position': 'right center'
+                },
+              },
             }
           }
         }
