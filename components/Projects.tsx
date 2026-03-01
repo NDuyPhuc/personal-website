@@ -7,6 +7,7 @@ const startupImg1 = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/Startup-hop-doi-
 const startupImg2 = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/nhan-thuong-NCKH-4-3.jpg';
 const startupImg3 = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/hinh-anh-ban-than-dang-thuyet-trinh.jpg';
 const startupImg4 = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/thuyet-trinh-NCKH.jpg';
+const atvlImg = 'https://ik.imagekit.io/duyphuc/ATVL-Techseed.jpg';
 
 const codingImg = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/ban-than-dang-ngoi-truoc-man-hinh-lap-trinh.jpg?updatedAt=1763734355088';
 const financeImg = 'https://ik.imagekit.io/duyphuc/anh-ca-nhan/ban-than-dang-tu-van-tai-chinh.jpg?updatedAt=1763734355016';
@@ -32,12 +33,12 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    title: "Bảo Hiểm & Tài Chính",
-    category: "Finance Sale",
-    description: "Hoạt động tư vấn bảo hiểm chuyên nghiệp với Chubb Life và GSale. Xây dựng kế hoạch tài chính cá nhân hóa.",
-    tech: ["Sales", "Consulting", "Risk Management", "Customer Care"],
-    impact: "Đối tác tin cậy, mã số đại lý 0233475.",
-    images: [financeImg]
+    title: "An Tâm Việc Làm (ATVL)",
+    category: "Startup & Social Impact",
+    description: "Dự án khởi nghiệp công nghệ hỗ trợ việc làm. Nền tảng kết nối việc làm uy tín và an toàn cho sinh viên và người lao động.",
+    tech: ["Startup", "Leadership", "Techseed 2025"],
+    impact: "Giải Quý quân TECHSEED 2025 (31/01/2026).",
+    images: [atvlImg, startupImg1, startupImg3]
   }
 ];
 

@@ -28,7 +28,6 @@ export const Navbar: React.FC = () => {
     { id: SectionId.ABOUT, label: 'Giới Thiệu' },
     { id: SectionId.SERVICES, label: 'Kỹ Năng' },
     { id: SectionId.PROJECTS, label: 'Thành Tích' },
-    { id: SectionId.INSURANCE, label: 'Mua Bảo Hiểm' },
     { id: SectionId.CONTACT, label: 'Liên Hệ' },
   ];
 

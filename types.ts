@@ -26,6 +26,5 @@ export enum SectionId {
   ABOUT = 'about',
   PROJECTS = 'projects',
   SERVICES = 'services',
-  INSURANCE = 'insurance',
   CONTACT = 'contact'
 }

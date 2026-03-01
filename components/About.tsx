@@ -157,7 +157,7 @@ export const About: React.FC = () => {
                     Với vai trò là <strong className="text-brand-cyan">Lớp trưởng 24CNTT</strong> và thành viên <strong className="text-brand-cyan">Ban chủ nhiệm CLB SIU Startup</strong>, tôi luôn nỗ lực kết nối cộng đồng và dẫn dắt các dự án đổi mới sáng tạo.
                 </p>
                 <p>
-                    Điểm mạnh của tôi nằm ở sự giao thoa: Tôi có thể viết code hệ thống phức tạp, nhưng cũng có thể cầm máy quay dựng video cinematic, và sẵn sàng tư vấn tài chính chuyên nghiệp cho khách hàng.
+                    Điểm mạnh của tôi nằm ở sự giao thoa: Tôi có thể viết code hệ thống phức tạp, nhưng cũng có thể cầm máy quay dựng video cinematic.
                 </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -171,20 +171,15 @@ export const About: React.FC = () => {
                     <div className="font-display font-bold text-lg md:text-2xl text-white">Startup</div>
                     <div className="text-xs text-brand-light">Project Leader</div>
                 </div>
-                 <div className="bg-brand-dark border border-brand-gray p-6 rounded-xl text-center hover:border-purple-500 transition-colors">
+                 <div className="bg-brand-dark border border-brand-gray p-6 rounded-xl text-center hover:border-purple-500 transition-colors col-span-2 md:col-span-1 md:col-start-2">
                     <Users className="w-8 h-8 text-purple-500 mx-auto mb-2" />
                     <div className="font-display font-bold text-lg md:text-2xl text-white">Class Mon.</div>
                     <div className="text-xs text-brand-light">Leadership</div>
                 </div>
-                 <div className="bg-brand-dark border border-brand-gray p-6 rounded-xl text-center hover:border-green-500 transition-colors">
-                    <TrendingUp className="w-8 h-8 text-green-500 mx-auto mb-2" />
-                    <div className="font-display font-bold text-lg md:text-2xl text-white">Agent</div>
-                    <div className="text-xs text-brand-light">Insurance & Sale</div>
-                </div>
             </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <FeatureCard 
             icon={Cpu}
             title="Lập Trình"
@@ -202,12 +197,6 @@ export const About: React.FC = () => {
             title="Content Creator"
             desc="Kỹ năng quay dựng Video chuyên nghiệp, Photoshop/Canva, xây dựng thương hiệu cá nhân."
             delay={0.3}
-          />
-          <FeatureCard 
-            icon={TrendingUp}
-            title="Tài Chính"
-            desc="Đại lý bảo hiểm tự do (Chubb Life & GSale). Kiến thức quản trị rủi ro và tài chính."
-            delay={0.4}
           />
         </div>
       </div>

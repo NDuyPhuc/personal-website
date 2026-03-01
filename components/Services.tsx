@@ -13,11 +13,6 @@ const services: Service[] = [
     icon: <Camera className="w-8 h-8" />,
     title: "Media & Branding",
     description: "Sản xuất Video (Cinematic, Hài, Vlog), Chụp ảnh, Thiết kế đồ họa (Ps, Canva). Tư vấn chiến lược xây dựng thương hiệu cá nhân và kênh TikTok/Facebook."
-  },
-  {
-    icon: <Shield className="w-8 h-8" />,
-    title: "Tư Vấn Bảo Hiểm",
-    description: "Cung cấp giải pháp bảo vệ tài chính toàn diện. Đối tác của Chubb Life (Nhân thọ - Mã 0233475) và GSale (Phi nhân thọ)."
   }
 ];
 
